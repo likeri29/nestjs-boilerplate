@@ -1,0 +1,14 @@
+{
+  "js/ts.tsdk.path": "node_modules/typescript/lib",
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "files.trimFinalNewlines": true,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "js/ts.preferences.quoteStyle": "single",
+  "prettier.endOfLine": "lf",
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "all"
+}
