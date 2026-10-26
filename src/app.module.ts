@@ -5,9 +5,11 @@ import { AppService } from 'app.service';
 
 import { dataSourceOptions } from 'database/data-source-options';
 import { environmentValidator } from 'environment/environment.validator';
+import { AuthModule } from 'modules/auth/auth.module';
 import { CacheModule } from 'modules/cache/cache.module';
 import { MailModule } from 'modules/mail/mail.module';
 import { StorageModule } from 'modules/storage/storage.module';
+import { UsersModule } from 'modules/users/users.module';
 
 @Module({
   imports: [
@@ -16,6 +18,8 @@ import { StorageModule } from 'modules/storage/storage.module';
     CacheModule,
     MailModule,
     StorageModule,
+    UsersModule,
+    AuthModule,
   ],
   providers: [AppService],
 })

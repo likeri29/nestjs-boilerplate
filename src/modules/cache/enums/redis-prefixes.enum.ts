@@ -1,3 +1,4 @@
 export enum RedisPrefixes {
-  RESET_PASSWORD_ONE_TIME_TOKEN = 'reset-password-one-time-token',
+  REFRESH_TOKEN_SESSION = 'refresh-token-session',
+  SESSIONS_REVOKED_BEFORE = 'sessions-revoked-before',
 }

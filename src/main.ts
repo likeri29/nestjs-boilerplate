@@ -12,6 +12,7 @@ import cookieParser from 'cookie-parser';
 import helmet from 'helmet';
 
 import type { Env } from 'environment/environment.type';
+import { REFRESH_TOKEN_COOKIE_NAME } from 'modules/auth/constants/auth.const';
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
@@ -77,6 +78,8 @@ async function bootstrap(): Promise<void> {
         `JSON schema can be found <a href="/${swaggerPath}-json" target="_blank">here</a>.`,
     )
     .addBearerAuth()
+    .addCookieAuth(REFRESH_TOKEN_COOKIE_NAME)
+    .addSecurityRequirements('bearer')
     .build();
   const document = SwaggerModule.createDocument(app, swaggerConfig);
 

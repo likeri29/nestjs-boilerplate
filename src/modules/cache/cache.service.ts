@@ -22,4 +22,25 @@ export class CacheService {
   async delete(key: string): Promise<void> {
     await this.cache.delete(key);
   }
+
+  /*
+   * The *Shared methods read and write Redis directly, skipping the
+   * per-instance in-memory layer. Use them for state that must be identical
+   * across app instances (sessions, revocations, locks).
+   */
+  async getShared<T>(key: string): Promise<T | undefined> {
+    return this.sharedStore.get<T>(key);
+  }
+
+  async setShared(key: string, value: unknown, ttlMs: number): Promise<void> {
+    await this.sharedStore.set(key, value, ttlMs);
+  }
+
+  async deleteShared(key: string): Promise<void> {
+    await this.sharedStore.delete(key);
+  }
+
+  private get sharedStore(): Cacheable['primary'] {
+    return this.cache.secondary ?? this.cache.primary;
+  }
 }

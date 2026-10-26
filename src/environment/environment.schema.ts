@@ -31,10 +31,7 @@ export const environmentSchema = z.object({
   S3_SECRET_ACCESS_KEY: z.string(),
   S3_BUCKET: z.string(),
   S3_FORCE_PATH_STYLE: z.stringbool().default(false),
-  PASSWORD_SALT_ROUNDS: z.number().default(12),
   JWT_SECRET: z.string().default(randomBytes(64).toString('hex')),
   JWT_ACCESS_TOKEN_EXPIRE_IN: ZOD_MS_TYPE.default('15m'),
   JWT_REFRESH_TOKEN_EXPIRE_IN: ZOD_MS_TYPE.default('15d'),
-  RESET_PASSWORD_TOKEN_EXPIRE_IN: ZOD_MS_TYPE.default('1d'),
-  RESET_PASSWORD_TOKEN_RESEND_IN: ZOD_MS_TYPE.default('30s'),
 });
