@@ -11,6 +11,7 @@ export abstract class BaseEntity extends BE {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
+  @Expose()
   @CreateDateColumn({ type: 'timestamptz' })
   createdAt: Date;
 
